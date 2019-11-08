@@ -173,26 +173,37 @@
                 <span *ngIf="showSkillDetails">
                     {{skill.skillEffect1}}
                     <br>
+                    {{'Lv1: ' + skill.efct1Lv1 + ' Lv6: ' + skill.efct1Lv6 + ' Lv10: ' + skill.efct1Lv10}}
+                    <br>
                 </span>
                 <span *ngIf="(showSkillDetails)&&(skill.skillEffect2 !== 'NA')">
-                    {{skill.skillEffect2 }}
+                    {{skill.skillEffect2  }}
+                    <br>
+                    {{'Lv1: ' + skill.efct2Lv1 + ' Lv6: ' + skill.efct2Lv6 + ' Lv10: ' + skill.efct2Lv10}}
                     <br>
                 </span>
                 <span *ngIf="(showSkillDetails)&&(skill.skillEffect3 !== 'NA')">
                     {{skill.skillEffect3 }}
                     <br>
+                    {{'Lv1: ' + skill.efct3Lv1 + ' Lv6: ' + skill.efct3Lv6 + ' Lv10: ' + skill.efct3Lv10}}
+                    <br>
                 </span>
                 <span *ngIf="(showSkillDetails)&&(skill.skillEffect4 !== 'NA')">
                     {{skill.skillEffect4 }}
+                    <br>
+                    {{'Lv1: ' + skill.efct4Lv1 + ' Lv6: ' + skill.efct4Lv6 + ' Lv10: ' + skill.efct4Lv10}}
                     <br>
                 </span>
                 <span *ngIf="(showSkillDetails)&&(skill.skillEffect5 !== 'NA')">
                     {{skill.skillEffect5 }}
                     <br>
+                    {{'Lv1: ' + skill.efct5Lv1 + ' Lv6: ' + skill.efct5Lv6 + ' Lv10: ' + skill.efct5Lv10}}
+                    <br>
                 </span>
                 <span *ngIf="(showSkillDetails)&&(skill.skillEffect6 !== 'NA')">
                     {{skill.skillEffect6 }}
                     <br>
+                    {{'Lv1: ' + skill.efct6Lv1 + ' Lv6: ' + skill.efct6Lv6 + ' Lv10: ' + skill.efct6Lv10}}
                 </span>
             </li>
         </ul>
