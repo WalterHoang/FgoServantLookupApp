@@ -35,6 +35,7 @@ export class ServantListComponent implements OnInit, OnDestroy {
   }
   getAllServants(){
     this.apiService.fetchAllServants();
+    this.router.navigate(['/servants']);
   }
   ngOnDestroy(){
     this.subscription.unsubscribe();
