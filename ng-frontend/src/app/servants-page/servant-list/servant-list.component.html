@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <input type="text" id="name" class="form-control" name="name"
+                placeholder="Enter a servant name to get started." ngModel>
+            <div class="col-md-6 col-xs-6" style="margin-top: 5px;">
+                <button class="btn btn-success pull-left" type="submit">Search Servants</button>
+            </div>
+            <div class="col-md-6 col-xs-6" style="margin-top: 5px;">
+                <button class="btn btn-info pull-right" type="button" (click)="getAllServants()">Get All
+                    Servants</button>
+            </div>
+        </form>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-xs-12 scrollable">
+        <app-servant-item *ngFor="let curServant of servants; let i = index" [servant]="curServant" [index]="i">
+        </app-servant-item>
+    </div>
+</div>

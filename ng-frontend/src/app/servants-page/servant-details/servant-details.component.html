@@ -1,0 +1,200 @@
+<div class="row">
+    <div class="col-xs-10">
+        <h2>{{servant.name}}</h2>
+        <h3>{{servant.rarity + ' star ' + servant.sClass }}</h3>
+    </div>
+    <div class="col-xs-2">
+        <img [src]="servant.iconLink" [alt]="servant.name" style="max-height: 90px; margin-top: 20px;">
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Basic Parameters</h3>
+        <div class="col-xs-4">
+            <span>
+                Cost: {{servant.cost}}
+                <br>
+            </span>
+            <span>
+                Deck: {{servant.cardlayout}}
+                <br>
+            </span>
+        </div>
+        <div class="col-xs-4">
+            <span>Min ATK: {{servant.attackMin}}</span>
+            <br>
+            <span>Max ATK: {{servant.attackMax}}</span>
+        </div>
+        <div class="col-xs-4">
+            <span>Min HP: {{servant.hpMin}}</span>
+            <br>
+            <span>Max HP: {{servant.hpMax}}</span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Traits and Alignments</h3>
+        <div class="col-xs-12">
+            Alignments: {{servant.alignment}}
+        </div>
+        <div class="col-xs-12">
+            Traits: {{servant.traits}}
+        </div>
+    </div>
+</div>
+<div class="row">
+        <div class="col-xs-12">
+            <h3>Interlude and Strengthening Overview</h3>
+            <div class="col-xs-12">
+                Interludes: {{servant.interludes}}
+            </div>
+            <div class="col-xs-12">
+                Strengthenings: {{servant.strengthen}}
+            </div>
+        </div>
+    </div>
+<div class="row">
+    <div class="col-xs-3">
+        <h3>Noble Phantasm</h3>
+    </div>
+    <div class="col-xs-3">
+        <button class="btn btn-info btn-sm" style="margin-top: 20px;" (click)="toggleNpDetails()">
+            {{!showNpDetails ? 'View Np Details' : 'Hide Np Details'}}
+        </button>
+    </div>
+    <div class="col-xs-3">
+    
+    </div>
+    <div class="col-xs-3">
+        <button type="button" class="btn btn-info btn-sm pull-right" style="margin-top: 20px;"
+            [disabled]="servant.np.upgrade === 'NA'" (click)="toggleNpUpgradeDetails()">
+            {{!showNpUpgradeDetails ? 'View upgraded np' : 'View Downgraded Np'}}
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="col-xs-3">
+            <span>
+                Name:
+                {{
+                !showNpUpgradeDetails ? 
+                servant.np.name : 
+                servant.np.upgradeName
+            }}
+            </span>
+            <br>
+            <br>
+            <span>Type: {{servant.np.type}}</span>
+        </div>
+        <div class="col-xs-9">
+            <span>
+                {{!showNpUpgradeDetails ? 
+                    'NP Level effect: ' + 
+                    servant.np.levelEffect :
+                    'Upgraded NP Level effect: ' +
+                    servant.np.levelEffectU
+                }}
+            </span>
+            <div class="col-xs-12" *ngIf="showNpDetails">
+                {{
+                    !showNpUpgradeDetails ? 'Np 1: ' + 
+                    servant.np.lvScale1 + ' | Np 2: ' +
+                    servant.np.lvScale2 + ' | Np 3: ' +
+                    servant.np.lvScale3 + ' | Np 4: ' +
+                    servant.np.lvScale4 + ' | Np 5: ' +
+                    servant.np.lvScale5 : 'Np 1: ' + 
+                    servant.np.lvScaleU1 + ' | Np 2: ' +
+                    servant.np.lvScaleU2 + ' | Np 3: ' +
+                    servant.np.lvScaleU3 + ' | Np 4: ' +
+                    servant.np.lvScaleU4 + ' | Np 5: ' +
+                    servant.np.lvScaleU5
+                }}
+            </div>
+            <br>
+            <span>
+                {{!showNpUpgradeDetails ? 
+                    'OC effect: ' + 
+                    servant.np.ocEffect :
+                    'Upgraded OC effect: ' +
+                    servant.np.ocEffectU
+                }}
+            </span>
+            <div class="col-xs-12" *ngIf="showNpDetails">
+                {{
+                    !showNpUpgradeDetails ? 'OC scale 1: ' + 
+                    servant.np.ocScale1 + ' | OC scale 2: ' +
+                    servant.np.ocScale2 + ' | OC scale 3: ' +
+                    servant.np.ocScale3 + ' | OC scale 4: ' +
+                    servant.np.ocScale4 + ' | OC scale 5: ' +
+                    servant.np.ocScale5 : 'OC scale 1: ' + 
+                    servant.np.ocScaleU1 + ' | OC scale 2: ' +
+                    servant.np.ocScaleU2 + ' | OC scale 3: ' +
+                    servant.np.ocScaleU3 + ' | OC scale 4: ' +
+                    servant.np.ocScaleU4 + ' | OC scale 5: ' +
+                    servant.np.ocScaleU5
+                }}
+            </div>
+            <br>
+            <span>
+                {{!showNpUpgradeDetails ? 
+                    'Other effects: ' + 
+                    servant.np.otherEffects :
+                    'Upgraded other effects: ' +
+                    servant.np.otherEffectsU
+                }}
+            </span>
+            <br>
+            <span *ngIf="!showNpUpgradeDetails">
+                How to Upgrade: {{servant.np.upgrade}}
+            </span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6">
+        <h3>Skills</h3>
+    </div>
+    <div class="col-xs-6">
+        <button type="button" class="btn btn-info btn-sm pull-right" style="margin-top: 20px;"
+            (click)="toggleSkillDetails()">{{!showSkillDetails ? 'View Skill Details' : 'Hide Skill Details'}}</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let skill of skills">
+                <span>
+                    <img [src]="skill.skillIconLink" [alt]="skill.name" class="img-responsive pull-right"
+                        style="max-height: 30px; margin-top: -5px;"> {{skill.name}}
+                </span>
+                <br>
+                <span *ngIf="showSkillDetails">
+                    {{skill.skillEffect1}}
+                    <br>
+                </span>
+                <span *ngIf="(showSkillDetails)&&(skill.skillEffect2 !== 'NA')">
+                    {{skill.skillEffect2 }}
+                    <br>
+                </span>
+                <span *ngIf="(showSkillDetails)&&(skill.skillEffect3 !== 'NA')">
+                    {{skill.skillEffect3 }}
+                    <br>
+                </span>
+                <span *ngIf="(showSkillDetails)&&(skill.skillEffect4 !== 'NA')">
+                    {{skill.skillEffect4 }}
+                    <br>
+                </span>
+                <span *ngIf="(showSkillDetails)&&(skill.skillEffect5 !== 'NA')">
+                    {{skill.skillEffect5 }}
+                    <br>
+                </span>
+                <span *ngIf="(showSkillDetails)&&(skill.skillEffect6 !== 'NA')">
+                    {{skill.skillEffect6 }}
+                    <br>
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>
