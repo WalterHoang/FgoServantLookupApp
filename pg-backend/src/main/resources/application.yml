@@ -1,0 +1,17 @@
+logging:
+  level:
+    root: ERROR
+
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    hikari.connection-timeout: 5000
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/FGO
+    username: postgres
+    password: pass@word1
+    driverClassName: org.postgresql.Driver
