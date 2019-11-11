@@ -7,22 +7,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ServantsPageComponent } from './servants-page/servants-page.component';
-import { DamageCalculatorPageComponent } from './damage-calculator-page/damage-calculator-page.component';
 import { HomeComponent } from './home/home.component';
 import { ServantDetailsComponent } from './servants-page/servant-details/servant-details.component';
 import { ServantListComponent } from './servants-page/servant-list/servant-list.component';
 import { ServantItemComponent } from './servants-page/servant-list/servant-item/servant-item.component';
-
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+/**
+ * This module contains all of the components needed to run this app
+ */
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     ServantsPageComponent,
-    DamageCalculatorPageComponent,
     HomeComponent,
     ServantDetailsComponent,
     ServantListComponent,
-    ServantItemComponent
+    ServantItemComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

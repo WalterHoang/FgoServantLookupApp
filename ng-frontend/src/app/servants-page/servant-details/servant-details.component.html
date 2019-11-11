@@ -1,10 +1,10 @@
 <div class="row">
-    <div class="col-xs-10">
+    <div class="col-xs-7">
         <h2>{{servant.name}}</h2>
         <h3>{{servant.rarity + ' star ' + servant.sClass }}</h3>
     </div>
-    <div class="col-xs-2">
-        <img [src]="servant.iconLink" [alt]="servant.name" style="max-height: 90px; margin-top: 20px;">
+    <div class="col-xs-5">
+        <img [src]="servant.iconLink" [alt]="servant.name" class="img-responsive pull-right" style="max-height: 90px; margin-top: 20px;">
     </div>
 </div>
 <div class="row">
@@ -44,30 +44,28 @@
     </div>
 </div>
 <div class="row">
+    <div class="col-xs-12">
+        <h3>Interlude and Strengthening Overview</h3>
         <div class="col-xs-12">
-            <h3>Interlude and Strengthening Overview</h3>
-            <div class="col-xs-12">
-                Interludes: {{servant.interludes}}
-            </div>
-            <div class="col-xs-12">
-                Strengthenings: {{servant.strengthen}}
-            </div>
+            Interludes: {{servant.interludes}}
+        </div>
+        <div class="col-xs-12">
+            Strengthenings: {{servant.strengthen}}
         </div>
     </div>
+</div>
 <div class="row">
-    <div class="col-xs-3">
+    <div class="col-xs-6">
         <h3>Noble Phantasm</h3>
     </div>
+    <div class="col-xs-3"></div>
     <div class="col-xs-3">
-        <button class="btn btn-info btn-sm" style="margin-top: 20px;" (click)="toggleNpDetails()">
+        <button class="btn btn-info btn-sm pull-right"  (click)="toggleNpDetails()">
             {{!showNpDetails ? 'View Np Details' : 'Hide Np Details'}}
         </button>
-    </div>
-    <div class="col-xs-3">
-    
-    </div>
-    <div class="col-xs-3">
-        <button type="button" class="btn btn-info btn-sm pull-right" style="margin-top: 20px;"
+        <br>
+        <br>
+        <button type="button" class="btn btn-info btn-sm pull-right"
             [disabled]="servant.np.upgrade === 'NA'" (click)="toggleNpUpgradeDetails()">
             {{!showNpUpgradeDetails ? 'View upgraded np' : 'View Downgraded Np'}}
         </button>
@@ -166,9 +164,11 @@
         <ul class="list-group">
             <li class="list-group-item" *ngFor="let skill of skills">
                 <span>
-                    <img [src]="skill.skillIconLink" [alt]="skill.name" class="img-responsive pull-right"
-                        style="max-height: 30px; margin-top: -5px;"> {{skill.name}}
+                    <img [src]="skill.skillIconLink" [alt]="skill.name" class="img-responsive pull-left"
+                        style="max-height: 40px; margin-top: -5px; padding-right: 10px;">
+                        {{skill.name}}
                 </span>
+                <br>
                 <br>
                 <span *ngIf="showSkillDetails">
                     {{skill.skillEffect1}}

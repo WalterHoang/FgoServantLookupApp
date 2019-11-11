@@ -5,7 +5,9 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { ApiService } from 'src/app/shared/api.service';
 import { ServantSkills } from '../servant-skils.model';
 import { Subscription } from 'rxjs';
-
+/**
+ * This component renders the details of a single servant
+ */
 @Component({
   selector: 'app-servant-details',
   templateUrl: './servant-details.component.html',
@@ -23,7 +25,11 @@ export class ServantDetailsComponent implements OnInit, OnDestroy {
     private apiService: ApiService,
     private route: ActivatedRoute,
   ) { }
-
+  /**
+   * This lifecycle method sets up a watcher
+   * on the url parameters to determine which
+   * servant details to render
+   */
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
